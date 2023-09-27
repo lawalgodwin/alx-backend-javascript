@@ -6,7 +6,7 @@ export default function guardrail(mathFunction) {
   } catch (error) {
     result.push(`Error: ${error.message}`);
   } finally {
-    result.push('uardrail was processed');
+    result.push('Guardrail was processed');
   }
   return result;
 }
