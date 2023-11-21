@@ -13,14 +13,14 @@ const countStudents = (fileName) => {
     console.log(`Number of students: ${lines.length}`);
 
     for (const field of allFields) {
-      let students = [];
+      let studentsFirstNames = [];
       lines.map((line) => {
         if (line.split(',')[3] === field) {
-          students = [...students, line.split(',')[0]];
+          studentsFirstNames = [...studentsFirstNames, line.split(',')[0]];
         }
         return line;
       });
-      console.log(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
+      console.log(`Number of students in ${field}: ${studentsFirstNames.length}. List: ${studentsFirstNames.join(', ')}`);
     }
   } catch (error) {
     throw new Error('Cannot load the database');
