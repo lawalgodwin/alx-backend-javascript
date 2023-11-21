@@ -1,14 +1,15 @@
 const fs = require('fs');
+const path = require('path');
 
 const countStudents = (fileName) => {
   let fileContent;
   try {
-    fileContent = fs.readFileSync(fileName, { encoding: 'utf-8' });
+    fileContent = fs.readFileSync(path.join(fileName), { encoding: 'utf-8' });
   } catch (error) {
     throw new Error('Cannot load the database');
   }
   let lines = [];
-  for (const line of fileContent.split('\r\n')) lines = [...lines, line];
+  for (const line of fileContent.split('\n')) lines = [...lines, line];
   while (lines[lines.length - 1] === '') lines.pop();
   lines = lines.slice(1);
   const allFields = new Set(lines.map((line) => line.split(',')[3]));
