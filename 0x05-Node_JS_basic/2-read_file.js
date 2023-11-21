@@ -2,8 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 const countStudents = (fileName) => {
+  let fileContent;
   try {
-    const fileContent = fs.readFileSync(path.join(__dirname, fileName), { encoding: 'utf-8' });
+    fileContent = fs.readFileSync(path.join(__dirname, fileName), { encoding: 'utf-8' });
+  } catch{
+    throw new Error('Cannot load the database');
+  }  
     let lines = [];
     for (const line of fileContent.split('\r\n')) lines = [...lines, line];
     while (lines[lines.length - 1] === '') lines.pop();
@@ -22,9 +26,6 @@ const countStudents = (fileName) => {
       });
       console.log(`Number of students in ${field}: ${studentsFirstNames.length}. List: ${studentsFirstNames.join(', ')}`);
     }
-  } catch (error) {
-    throw new Error('Cannot load the database');
-  }
 };
 
 module.exports = countStudents;
