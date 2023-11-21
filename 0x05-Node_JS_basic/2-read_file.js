@@ -1,10 +1,9 @@
 const fs = require('fs');
-const path = require('path');
 
 const countStudents = (fileName) => {
   let fileContent;
   try {
-    fileContent = fs.readFileSync(path.join(__dirname, fileName), { encoding: 'utf-8' });
+    fileContent = fs.readFileSync(fileName, { encoding: 'utf-8' });
   } catch (error) {
     throw new Error('Cannot load the database');
   }
