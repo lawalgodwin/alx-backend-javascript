@@ -15,7 +15,7 @@ const requestHandler = async (req, res) => {
       students.forEach((s) => {
         res.write(`Number of students in ${s.course}: ${s.studentsFirstNames.length}. List: ${s.studentsFirstNames.join(', ')}${s === students[students.length - 1] ? '' : '\n'}`);
       });
-      res.end('');
+      res.end();
     } catch (error) {
       res.end(error.message);
     }
