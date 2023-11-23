@@ -6,6 +6,7 @@ const countStudents = async (fileName) => {
     fs.readFile = promisify(fs.readFile);
     const data = await fs.readFile(fileName, 'utf8');
     const lines = data.split('\n');
+    // const lines = data.split('\r\n');
     while (lines[lines.length - 1] === '') lines.pop();
     const students = lines.slice(1);
     const NUMBER_OF_STUDENTS = students.length;
