@@ -1,9 +1,9 @@
-const server = require('express')();
+const app = require('express')();
 
 const router = require('./routes/index');
 
-server.use(router);
+app.use(router);
 
-server.listen(1245, () => console.log('app listening on port 1245'));
+app.listen(1245, () => console.log('app listening on port 1245'));
 
-module.exports = server;
+export default app;
