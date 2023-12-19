@@ -1,6 +1,5 @@
-const calculateNumber = require('./1-calcul');
-
 const { expect } = require('chai')
+const calculateNumber = require('./1-calcul');
 
 
 describe(" calculateNumber function Test for SUM operation", () => {
