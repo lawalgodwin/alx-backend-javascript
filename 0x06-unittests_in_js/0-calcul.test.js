@@ -3,31 +3,20 @@ const assert = require('assert');
 const calculateNumber = require('./0-calcul');
 
 describe('Test for the function calculateNumber', () => {
-  it('Addition of 1 and 3 expects 4', () => {
-    const actual = calculateNumber(1, 3);
-    const expected = 4;
-    assert.equal(actual, expected);
-  });
-  it('Addition of 1 and 3.7 expects 5', () => {
-    const actual = calculateNumber(1, 3.7);
-    const expected = 5;
-    assert.equal(actual, expected);
-  });
-
-  it('Addition of 3.7 and 1 expects 5', () => {
-    const actual = calculateNumber(3.7, 1);
-    const expected = 5;
-    assert.equal(actual, expected);
-  });
-
-  it('Addition of 1.2 and 3.7 expects 5', () => {
-    const actual = calculateNumber(1.2, 3.7);
-    const expected = 5;
-    assert.equal(actual, expected);
-  });
-  it('Addition of 1.5 and 3.7 expects 6', () => {
-    const actual = calculateNumber(1.5, 3.7);
-    const expected = 6;
-    assert.equal(actual, expected);
-  });
+    it('round the first argument', () => {
+        assert.equal(calculateNumber(1.0, 0), 1);
+        assert.equal(calculateNumber(3.7, 1), 5);
+        assert.equal(calculateNumber(1.7, 0), 2);
+      });
+    
+      it('round the second argument', () => {
+        assert.equal(calculateNumber(0, 1.0), 1);
+        assert.equal(calculateNumber(0, 1.3), 1);
+        assert.equal(calculateNumber(1, 3.7), 5);
+      });
+    
+      it('should return the right number', () => {
+        assert.equal(calculateNumber(1.5, 3.7), 6);
+        assert.equal(calculateNumber(1.2, 3.7), 5);
+      });
 });
