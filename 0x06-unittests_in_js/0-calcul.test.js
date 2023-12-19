@@ -13,6 +13,13 @@ describe('Test for the function calculateNumber', () => {
     const expected = 5;
     assert.equal(actual, expected);
   });
+
+  it('Addition of 3.7 and 1 expects 5', () => {
+    const actual = calculateNumber(3.7, 1);
+    const expected = 5;
+    assert.equal(actual, expected);
+  });
+
   it('Addition of 1.2 and 3.7 expects 5', () => {
     const actual = calculateNumber(1.2, 3.7);
     const expected = 5;
